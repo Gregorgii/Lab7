@@ -1,0 +1,284 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ArtifactsWorkspaceSettings">
+    <artifacts-to-build>
+      <artifact name="client:jar" />
+      <artifact name="server:jar" />
+    </artifacts-to-build>
+  </component>
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="a746d0b8-0ef2-41ff-89e2-3e449071dcfb" name="Changes" comment="it's okay, but something wrong with sender. check it">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/generators/ConsoleStudyGroupGenerator.java" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/generators/ConsoleStudyGroupGenerator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/generators/ScriptStudyGroupGenerator.java" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/generators/ScriptStudyGroupGenerator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/util/workingWithCommand/AvailableCommands.java" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/util/workingWithCommand/AvailableCommands.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/util/workingWithServer/ClientSocketWorker.java" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/util/workingWithServer/ClientSocketWorker.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/util/workingWithServer/ReceiveResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/util/workingWithServer/ReceiveResponse.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/util/workingWithServer/RequestCreator.java" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/util/workingWithServer/RequestCreator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/util/workingWithServer/SendRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/util/workingWithServer/SendRequest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/src/condition/Condition.java" beforeDir="false" afterPath="$PROJECT_DIR$/common/src/condition/Condition.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/src/condition/StudyGroupGenerator.java" beforeDir="false" afterPath="$PROJECT_DIR$/common/src/condition/StudyGroupGenerator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/src/things/Coordinates.java" beforeDir="false" afterPath="$PROJECT_DIR$/common/src/things/Coordinates.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/src/things/Person.java" beforeDir="false" afterPath="$PROJECT_DIR$/common/src/things/Person.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/src/things/Semester.java" beforeDir="false" afterPath="$PROJECT_DIR$/common/src/things/Semester.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/src/things/StudyGroup.java" beforeDir="false" afterPath="$PROJECT_DIR$/common/src/things/StudyGroup.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/src/things/StudyGroupBuilder.java" beforeDir="false" afterPath="$PROJECT_DIR$/common/src/things/StudyGroupBuilder.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/src/util/Parser.java" beforeDir="false" afterPath="$PROJECT_DIR$/common/src/util/Parser.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/src/util/Serializer.java" beforeDir="false" afterPath="$PROJECT_DIR$/common/src/util/Serializer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data.csv" beforeDir="false" afterPath="$PROJECT_DIR$/data.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/commands/clientCommands/AbstractClientCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/commands/clientCommands/AbstractClientCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/commands/clientCommands/AddIfMaxCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/commands/clientCommands/AddIfMaxCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/commands/clientCommands/PrintFieldDecsendingSemesterEnumCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/commands/clientCommands/PrintFieldDecsendingSemesterEnumCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/generators/FromFileStudyGroupGenerator.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/generators/FromFileStudyGroupGenerator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/managers/CollectionManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/managers/CollectionManager.java" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="CodeInsightWorkspaceSettings">
+    <option name="optimizeImportsOnTheFly" value="true" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="AnnotationType" />
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Rebase.Settings">
+    <option name="NEW_BASE" value="main/master" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="master" />
+      </map>
+    </option>
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+  }
+}</component>
+  <component name="GithubPullRequestsUISettings">
+    <option name="selectedUrlAndAccountId">
+      <UrlAndAccount>
+        <option name="accountId" value="6d149d25-f42b-4bf8-ac13-3031d667e6cc" />
+        <option name="url" value="https://github.com/Gregorgii/Lab6_second_try.git" />
+      </UrlAndAccount>
+    </option>
+  </component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="CurrentFile" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 1
+}</component>
+  <component name="ProjectId" id="2UhfdOb42Fo0WCquj34E20tEdOv" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "Downloaded.Files.Path.Enabled": "false",
+    "Repository.Attach.Annotations": "false",
+    "Repository.Attach.JavaDocs": "false",
+    "Repository.Attach.Sources": "true",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "main",
+    "ignore.virus.scanning.warn.message": "true",
+    "jdk.selected.JAVA_MODULE": "18",
+    "last_opened_file_path": "C:/Users/mavri/Documents/GitHub/Lab6/Lab6_sec_try/server/src/META-INF/MANIFEST.MF",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "project.structure.last.edited": "Project",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2",
+    "settings.editor.selected.configurable": "reference.projectsettings.compiler.javacompiler",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
+  <component name="RecentsManager">
+    <key name="CreateClassDialog.RecentsKey">
+      <recent name="things" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\mavri\Documents\GitHub\Lab6\Lab6_sec_try\server\src" />
+      <recent name="C:\Users\mavri\Documents\GitHub\Lab6\Lab6_sec_try" />
+      <recent name="C:\Users\mavri\Documents\GitHub\Lab6\Lab6_sec_try\client\src" />
+      <recent name="C:\Users\mavri\Documents\GitHub\Lab6\Lab6_sec_try\server\src\managers" />
+      <recent name="C:\Users\mavri\Documents\GitHub\Lab6\Lab6_sec_try\server\src\exceptions" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\mavri\Documents\GitHub\Lab6\Lab6_sec_try\server\src" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="managers" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Application.Main (1)">
+    <configuration name="Main (1)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Main" />
+      <module name="client" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Main" />
+      <module name="server" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.Main" />
+        <item itemvalue="Application.Main (1)" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="a746d0b8-0ef2-41ff-89e2-3e449071dcfb" name="Changes" comment="" />
+      <created>1693396823289</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1693396823289</updated>
+      <workItem from="1693396824301" duration="22121000" />
+      <workItem from="1693761947073" duration="3687000" />
+      <workItem from="1693766612236" duration="3339000" />
+      <workItem from="1693771489343" duration="1166000" />
+      <workItem from="1693985683236" duration="14254000" />
+      <workItem from="1694028263656" duration="41234000" />
+    </task>
+    <task id="LOCAL-00001" summary="started writing server">
+      <option name="closed" value="true" />
+      <created>1693733827808</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1693733827808</updated>
+    </task>
+    <task id="LOCAL-00002" summary="first_commit_new_repo">
+      <option name="closed" value="true" />
+      <created>1693735356003</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1693735356003</updated>
+    </task>
+    <task id="LOCAL-00003" summary="i see....">
+      <option name="closed" value="true" />
+      <created>1693772169182</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1693772169182</updated>
+    </task>
+    <task id="LOCAL-00004" summary="refactor to builders and generators instead of IOmngr">
+      <option name="closed" value="true" />
+      <created>1693991846952</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1693991846952</updated>
+    </task>
+    <task id="LOCAL-00005" summary="parser made and exception mngr">
+      <option name="closed" value="true" />
+      <created>1693995274318</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1693995274318</updated>
+    </task>
+    <task id="LOCAL-00006" summary="goddamn, i did a lot of. it's not too far">
+      <option name="closed" value="true" />
+      <created>1694037143267</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1694037143267</updated>
+    </task>
+    <task id="LOCAL-00007" summary="hell yeah, last commits">
+      <option name="closed" value="true" />
+      <created>1694097315066</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1694097315066</updated>
+    </task>
+    <task id="LOCAL-00008" summary="is it final?">
+      <option name="closed" value="true" />
+      <created>1694102379229</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1694102379229</updated>
+    </task>
+    <task id="LOCAL-00009" summary="work program is somewhere around, it smells like napalm">
+      <option name="closed" value="true" />
+      <created>1694103984334</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1694103984334</updated>
+    </task>
+    <task id="LOCAL-00010" summary="it's okay, but something wrong with sender. check it">
+      <option name="closed" value="true" />
+      <created>1694109137221</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1694109137221</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="started writing server" />
+    <MESSAGE value="first_commit_new_repo" />
+    <MESSAGE value="i see...." />
+    <MESSAGE value="refactor to builders and generators instead of IOmngr" />
+    <MESSAGE value="parser made and exception mngr" />
+    <MESSAGE value="goddamn, i did a lot of. it's not too far" />
+    <MESSAGE value="hell yeah, last commits" />
+    <MESSAGE value="is it final?" />
+    <MESSAGE value="work program is somewhere around, it smells like napalm" />
+    <MESSAGE value="it's okay, but something wrong with sender. check it" />
+    <option name="LAST_COMMIT_MESSAGE" value="it's okay, but something wrong with sender. check it" />
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
+  </component>
+</project>
