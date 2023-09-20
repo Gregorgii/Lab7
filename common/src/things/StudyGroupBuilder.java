@@ -4,6 +4,9 @@ import java.io.Serializable;
 import java.time.LocalDate;
 
 public class StudyGroupBuilder implements Serializable {
+
+    private Integer id;
+    private LocalDate creationDate;
     private String groupName;
     private Coordinates coordinates;
     private Long studentsCount;
@@ -11,6 +14,16 @@ public class StudyGroupBuilder implements Serializable {
     private Integer transferredStudents;
     private Semester semesterEnum;
     private  Person groupAdmin;
+
+    public StudyGroupBuilder withId(Integer id){
+        this.id = id;
+        return this;
+    }
+
+    public StudyGroupBuilder withCreationDate(LocalDate creationDate){
+        this.creationDate = creationDate;
+        return this;
+    }
 
     public StudyGroupBuilder withGroupName(String groupName) {
         this.groupName = groupName;

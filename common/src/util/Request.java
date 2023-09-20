@@ -1,5 +1,6 @@
 package util;
 
+import things.RequestType;
 import things.StudyGroup;
 
 import java.io.Serializable;
@@ -13,6 +14,7 @@ public class Request implements Serializable {
     private final Integer integerArgument;
     private final Double doubleArgument;
     private final StudyGroup studyGroupArgument;
+    private RequestType requestTypeArgument;
 
     public Request(RequestBuilder requestBuilder){
         this.commandName = requestBuilder.getCommandName();
@@ -20,6 +22,7 @@ public class Request implements Serializable {
         this.integerArgument = requestBuilder.getIntegerArgument();
         this.doubleArgument = requestBuilder.getDoubleArgument();
         this.studyGroupArgument = requestBuilder.getStudyGroupArgument();
+        this.requestTypeArgument = requestBuilder.getRequestTypeArgument();
     }
 
     public String getCommandName() {
@@ -49,6 +52,7 @@ public class Request implements Serializable {
     public String getClientInfo() {
         return clientInfo;
     }
+    public RequestType getRequestTypeArgument() { return requestTypeArgument; }
 
     public void setClientInfo(String clientInfo) {
         this.clientInfo = clientInfo;
@@ -57,6 +61,8 @@ public class Request implements Serializable {
     public void setCurrentTime(LocalTime currentTime) {
         this.currentTime = currentTime;
     }
+
+    public void setRequestTypeArgument(RequestType requestTypeArgument) { this.requestTypeArgument = requestTypeArgument; }
 
     @Override
     public String toString(){

@@ -11,29 +11,22 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a746d0b8-0ef2-41ff-89e2-3e449071dcfb" name="Changes" comment="it's okay, but something wrong with sender. check it">
+      <change afterPath="$PROJECT_DIR$/common/src/things/RequestType.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/src/DB/Connector.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/src/DB/DBManager.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/src/DBInterface/DBConnectable.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/src/DBInterface/SQLConsumer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/src/DBInterface/SQLFunction.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/src/managers/UsersManager.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/src/util/RequestWithAddress.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/src/util/StringEncryptor.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/generators/ConsoleStudyGroupGenerator.java" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/generators/ConsoleStudyGroupGenerator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/generators/ScriptStudyGroupGenerator.java" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/generators/ScriptStudyGroupGenerator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/util/workingWithCommand/AvailableCommands.java" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/util/workingWithCommand/AvailableCommands.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/util/workingWithServer/ClientSocketWorker.java" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/util/workingWithServer/ClientSocketWorker.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/util/workingWithServer/ReceiveResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/util/workingWithServer/ReceiveResponse.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/util/workingWithServer/RequestCreator.java" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/util/workingWithServer/RequestCreator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/util/workingWithServer/SendRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/util/workingWithServer/SendRequest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/common/src/condition/Condition.java" beforeDir="false" afterPath="$PROJECT_DIR$/common/src/condition/Condition.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/common/src/condition/StudyGroupGenerator.java" beforeDir="false" afterPath="$PROJECT_DIR$/common/src/condition/StudyGroupGenerator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/common/src/things/Coordinates.java" beforeDir="false" afterPath="$PROJECT_DIR$/common/src/things/Coordinates.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/common/src/things/Person.java" beforeDir="false" afterPath="$PROJECT_DIR$/common/src/things/Person.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/common/src/things/Semester.java" beforeDir="false" afterPath="$PROJECT_DIR$/common/src/things/Semester.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/common/src/things/StudyGroup.java" beforeDir="false" afterPath="$PROJECT_DIR$/common/src/things/StudyGroup.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/common/src/things/StudyGroupBuilder.java" beforeDir="false" afterPath="$PROJECT_DIR$/common/src/things/StudyGroupBuilder.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/common/src/util/Parser.java" beforeDir="false" afterPath="$PROJECT_DIR$/common/src/util/Parser.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/common/src/util/Serializer.java" beforeDir="false" afterPath="$PROJECT_DIR$/common/src/util/Serializer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data.csv" beforeDir="false" afterPath="$PROJECT_DIR$/data.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/commands/clientCommands/AbstractClientCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/commands/clientCommands/AbstractClientCommand.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/commands/clientCommands/AddIfMaxCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/commands/clientCommands/AddIfMaxCommand.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/commands/clientCommands/PrintFieldDecsendingSemesterEnumCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/commands/clientCommands/PrintFieldDecsendingSemesterEnumCommand.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/generators/FromFileStudyGroupGenerator.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/generators/FromFileStudyGroupGenerator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/managers/CollectionManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/managers/CollectionManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/src/util/Request.java" beforeDir="false" afterPath="$PROJECT_DIR$/common/src/util/Request.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/src/util/RequestBuilder.java" beforeDir="false" afterPath="$PROJECT_DIR$/common/src/util/RequestBuilder.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/util/AvailableCommands.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/commands/AvailableCommands.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/util/RequestThread.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/util/RequestThread.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/util/workingWithCommand/CommandManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/util/workingWithCommand/CommandManager.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -88,30 +81,30 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "Downloaded.Files.Path.Enabled": "false",
-    "Repository.Attach.Annotations": "false",
-    "Repository.Attach.JavaDocs": "false",
-    "Repository.Attach.Sources": "true",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "main",
-    "ignore.virus.scanning.warn.message": "true",
-    "jdk.selected.JAVA_MODULE": "18",
-    "last_opened_file_path": "C:/Users/mavri/Documents/GitHub/Lab6/Lab6_sec_try/server/src/META-INF/MANIFEST.MF",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "project.structure.last.edited": "Project",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.2",
-    "settings.editor.selected.configurable": "reference.projectsettings.compiler.javacompiler",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;Downloaded.Files.Path.Enabled&quot;: &quot;false&quot;,
+    &quot;Repository.Attach.Annotations&quot;: &quot;false&quot;,
+    &quot;Repository.Attach.JavaDocs&quot;: &quot;false&quot;,
+    &quot;Repository.Attach.Sources&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;jdk.selected.JAVA_MODULE&quot;: &quot;18&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/mavri/Documents/GitHub/Lab7&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;reference.projectsettings.compiler.javacompiler&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CreateClassDialog.RecentsKey">
       <recent name="things" />
@@ -166,6 +159,9 @@
       <workItem from="1693771489343" duration="1166000" />
       <workItem from="1693985683236" duration="14254000" />
       <workItem from="1694028263656" duration="41234000" />
+      <workItem from="1694862978336" duration="38000" />
+      <workItem from="1694863087360" duration="6522000" />
+      <workItem from="1695215456423" duration="7940000" />
     </task>
     <task id="LOCAL-00001" summary="started writing server">
       <option name="closed" value="true" />

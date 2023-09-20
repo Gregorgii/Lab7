@@ -1,7 +1,7 @@
 package util.workingWithCommand;
 
 import managers.CollectionManager;
-import util.AvailableCommands;
+import commands.AvailableCommands;
 import util.Request;
 import util.Response;
 import util.ResponseBuilder;

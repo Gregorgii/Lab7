@@ -1,5 +1,6 @@
 package util;
 
+import things.RequestType;
 import things.StudyGroup;
 
 public class RequestBuilder {
@@ -8,6 +9,7 @@ public class RequestBuilder {
         private Integer integerArgument;
         private Double doubleArgument;
         private StudyGroup studyGroupArgument;
+        private RequestType requestTypeArgument;
 
         public RequestBuilder withName(String commandName) {
             this.commandName = commandName;
@@ -34,6 +36,11 @@ public class RequestBuilder {
             return this;
         }
 
+        public RequestBuilder withRequestTypeArgument(RequestType requestTypeArgument) {
+            this.requestTypeArgument = requestTypeArgument;
+            return this;
+        }
+
         public String getCommandName() {
             return commandName;
         }
@@ -51,5 +58,8 @@ public class RequestBuilder {
         }
 
         public StudyGroup getStudyGroupArgument() { return studyGroupArgument; }
+        public RequestType getRequestTypeArgument() {
+        return requestTypeArgument;
+    }
 
 }
