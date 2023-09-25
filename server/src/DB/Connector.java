@@ -10,11 +10,11 @@ import java.sql.Statement;
 
 public class Connector {
 
-        private final String dbUrl = "jdbc:postgresql://localhost:5432/studs";
-        private final String user = "postgres";
-        private final String pass = "368462";
+    private final String dbUrl = "jdbc:postgresql://localhost:5672/studs";
+    private final String user = "s368462";
+    private final String pass = "E9Ef6MzKjxopL1QO";
         public Connector() {
-            try {
+            try{
                 Class.forName("org.postgresql.Driver");
                 initializeDB();
             } catch (ClassNotFoundException e) {
@@ -46,9 +46,9 @@ public class Connector {
 
             Statement statement = connection.createStatement();
 
-            statement.execute("CREATE SEQUENCE IF NOT EXISTS study_group_id_seq INCREMENT 1 START 1 MINVALUE 1 MAXVALUE 2147483647 CACHE 1");
+            statement.execute("CREATE SEQUENCE IF NOT EXISTS study_group_id_seq INCREMENT 1 START 1 MINVALUE 1 MAXVALUE 2147483647");
 
-            statement.execute("CREATE SEQUENCE IF NOT EXISTS users_id_seq INCREMENT 1 START 1 MINVALUE 1 MAXVALUE 2147483647 CACHE 1");
+            statement.execute("CREATE SEQUENCE IF NOT EXISTS users_id_seq INCREMENT 1 START 1 MINVALUE 1 MAXVALUE 2147483647");
 
             statement.execute("CREATE TABLE IF NOT EXISTS users "
                     + "("
@@ -80,6 +80,5 @@ public class Connector {
                     + ");");
             connection.close();
         }
-    }
-
 }
+

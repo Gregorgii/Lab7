@@ -1,18 +1,19 @@
 package util.workingWithCommand;
 
-import managers.CollectionManager;
 import commands.AvailableCommands;
 import util.Request;
 import util.Response;
 import util.ResponseBuilder;
+
+import java.sql.SQLException;
 
 public class CommandManager {
     private static boolean statusOfCommandListening = true;
     private final AvailableCommands availableCommands;
 
 
-    public CommandManager(CollectionManager collectionManager) {
-        availableCommands = new AvailableCommands(collectionManager);
+    public CommandManager(CommandProcessor commandProcessor) {
+        availableCommands = new AvailableCommands(commandProcessor);
     }
 
     public Response executeClientCommand(Request request) throws NullPointerException {
@@ -20,6 +21,8 @@ public class CommandManager {
         return AvailableCommands.CLIENT_AVAILABLE_COMMANDS.get(request.getCommandName()).executeCommand(request);
         } catch (NullPointerException e){
             return (new Response(new ResponseBuilder().withMessageToResponse(e.getMessage()))) ;
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
         }
     }
 

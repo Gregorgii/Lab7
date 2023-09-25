@@ -6,6 +6,7 @@ import util.workingWithServer.ClientSocketWorker;
 import util.workingWithServer.ReceiveResponse;
 import util.workingWithServer.SendRequest;
 
+import java.util.List;
 import java.util.Locale;
 import java.util.Scanner;
 
@@ -16,7 +17,7 @@ public final class CommandManager {
     private CommandManager() {
     }
 
-    public static void runConsoleCycle(Scanner scanner, ClientSocketWorker clientSocketWorker) {
+    public static void runConsoleCycle(Scanner scanner, ClientSocketWorker clientSocketWorker, List<String> user) {
         while (statusOfCommandListening) {
             CommandToSend command = COMMAND_LISTENER.readCommandFromConsole(scanner);
             performCommand(command, clientSocketWorker);

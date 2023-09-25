@@ -1,32 +1,25 @@
 package commands.clientCommands;
-import managers.*;
+
 import util.Request;
 import util.Response;
-import util.ResponseBuilder;
+import util.workingWithCommand.CommandProcessor;
 
 public class RemoveGreaterCommand extends AbstractClientCommand{
 
-    private final CollectionManager collectionManager;
+    private final CommandProcessor commandProcessor;
 
-    public RemoveGreaterCommand(CollectionManager collectionManager){
+    public RemoveGreaterCommand(CommandProcessor commandProcessor){
         super(new AbstractCommandBuilder()
                 .withName("remove_greater")
                 .withQuantityOfArgs(0)
                 .withDescription("remove all elements greater than input")
                 .withDescriptionOfArgs("study group to compare")
                 .withGeneratesStudyGroup(true));
-        this.collectionManager = collectionManager;
+        this.commandProcessor = commandProcessor;
     }
 
     @Override
     public Response executeCommand(Request request){
-        try {
-            return new Response(new ResponseBuilder()
-                    .withMessageToResponse(collectionManager
-                            .removeGreater(request.getStudyGroupArgument())));
-        } catch (IllegalArgumentException e){
-            return new Response(new ResponseBuilder()
-                    .withMessageToResponse(e.getMessage()));
-        }
+        return commandProcessor.removeGreater(request);
     }
 }

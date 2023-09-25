@@ -13,11 +13,11 @@ public enum Semester implements Serializable {
     EIGHTH;
 
     public static String show() {
-        StringBuilder stringWeaponType = new StringBuilder();
+        StringBuilder stringSemesterEnum = new StringBuilder();
         for (Semester i : values()) {
-            stringWeaponType.append(i);
-            stringWeaponType.append("\n");
+            stringSemesterEnum.append(i);
+            stringSemesterEnum.append("\n");
         }
-        return stringWeaponType.toString();
+        return stringSemesterEnum.toString();
     }
 }

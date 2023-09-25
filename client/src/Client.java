@@ -3,7 +3,9 @@ import things.StudyGroup;
 import util.workingWithCommand.CommandManager;
 import util.workingWithServer.ClientSocketWorker;
 import util.workingWithServer.GeneratorClientSocketWorker;
+import util.workingWithServer.GeneratorUser;
 
+import java.util.List;
 import java.util.Scanner;
 
 public class Client {
@@ -11,8 +13,10 @@ public class Client {
         try (Scanner scanner = new Scanner(System.in)) {
             GeneratorClientSocketWorker generatorClientSocketWorker = new GeneratorClientSocketWorker(scanner);
             ClientSocketWorker clientSocketWorker = generatorClientSocketWorker.getClientSocketWorker();
-            StudyGroup.getStudyGroupGenerator().changeCondition(new ConsoleStudyGroupGenerator(new Scanner(System.in)));
-            CommandManager.runConsoleCycle(scanner, clientSocketWorker);
+            GeneratorUser generatorUser = new GeneratorUser(scanner, clientSocketWorker);
+            List<String> user = generatorUser.getUser();
+            StudyGroup.getStudyGroupGenerator().changeCondition(new ConsoleStudyGroupGenerator(scanner));
+            CommandManager.runConsoleCycle(scanner, clientSocketWorker, user);
         }
     }
 }

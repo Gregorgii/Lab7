@@ -14,6 +14,8 @@ public class Request implements Serializable {
     private final Integer integerArgument;
     private final Double doubleArgument;
     private final StudyGroup studyGroupArgument;
+    private String username;
+    private String password;
     private RequestType requestTypeArgument;
 
     public Request(RequestBuilder requestBuilder){
@@ -22,6 +24,8 @@ public class Request implements Serializable {
         this.integerArgument = requestBuilder.getIntegerArgument();
         this.doubleArgument = requestBuilder.getDoubleArgument();
         this.studyGroupArgument = requestBuilder.getStudyGroupArgument();
+        this.username = requestBuilder.getUsernameArgument();
+        this.password = requestBuilder.getPasswordArgument();
         this.requestTypeArgument = requestBuilder.getRequestTypeArgument();
     }
 
@@ -60,6 +64,21 @@ public class Request implements Serializable {
 
     public void setCurrentTime(LocalTime currentTime) {
         this.currentTime = currentTime;
+    }
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
     }
 
     public void setRequestTypeArgument(RequestType requestTypeArgument) { this.requestTypeArgument = requestTypeArgument; }

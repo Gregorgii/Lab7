@@ -1,26 +1,23 @@
 package commands.clientCommands;
 
-
 import util.Request;
 import util.Response;
 import util.workingWithCommand.CommandProcessor;
 
-public class ClearCommand extends AbstractClientCommand{
+public class PrintFieldDescendingSemesterEnumCommand extends AbstractClientCommand {
     private final CommandProcessor commandProcessor;
 
-    public ClearCommand(CommandProcessor commandProcessor){
+    public PrintFieldDescendingSemesterEnumCommand(CommandProcessor commandProcessor) {
         super(new AbstractCommandBuilder()
-                .withName("clear")
+                .withName("print_field_descending_semester")
                 .withQuantityOfArgs(0)
-                .withDescription("clear collection")
+                .withDescription("print all fields with info 'bout semester in descending")
                 .withGeneratesStudyGroup(false));
         this.commandProcessor = commandProcessor;
     }
 
     @Override
     public Response executeCommand(Request request) {
-        return commandProcessor.clear(request);
+        return commandProcessor.printFieldDescendingSemester(request);
     }
-
-
 }

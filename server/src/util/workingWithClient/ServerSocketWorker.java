@@ -2,7 +2,7 @@ package util.workingWithClient;
 
 
 import util.DeSerializer;
-import util.Request;
+import util.RequestWithAddress;
 import util.Response;
 import util.Serializer;
 
@@ -10,7 +10,7 @@ import java.io.IOException;
 import java.net.*;
 
 public class ServerSocketWorker {
-    private static final int DEFAULT_PORT = 1337;
+    private static final int DEFAULT_PORT = 5672;
     private DatagramSocket datagramSocket;
     private int port = DEFAULT_PORT;
     private SocketAddress clientAddress;
@@ -36,19 +36,19 @@ public class ServerSocketWorker {
         datagramSocket.close();
     }
 
-    public Request receiveRequest() throws IOException, ClassNotFoundException {
+    public RequestWithAddress receiveRequest() throws IOException, ClassNotFoundException {
         int receivedSize = datagramSocket.getReceiveBufferSize();
         byte[] byteArray = new byte[receivedSize];
         DatagramPacket dpToReceive = new DatagramPacket(byteArray, byteArray.length);
         datagramSocket.receive(dpToReceive);
         clientAddress = dpToReceive.getSocketAddress();
         byteArray = dpToReceive.getData();
-        return DeSerializer.deSerializeRequest(byteArray);
+        return new RequestWithAddress(DeSerializer.deSerializeRequest(byteArray), clientAddress);
     }
 
-    public void sendResponse(Response response) throws IOException {
+    public void sendResponse(Response response, SocketAddress socketAddress) throws IOException {
         byte[] bufferToSend = Serializer.serializeResponse(response);
-        DatagramPacket datagramPacket = new DatagramPacket(bufferToSend, bufferToSend.length, clientAddress);
+        DatagramPacket datagramPacket = new DatagramPacket(bufferToSend, bufferToSend.length, socketAddress);
         datagramSocket.send(datagramPacket);
     }
 }

@@ -3,6 +3,7 @@ package DB;
 import things.Semester;
 import things.StudyGroup;
 import things.StudyGroupBuilder;
+import util.StringEncryptor;
 
 import java.sql.*;
 import java.util.ArrayList;
@@ -45,7 +46,7 @@ public class DBManager {
 
     }
 
-    public Long add(StudyGroup studyGroup, String username) throws SQLException {
+    public Integer add(StudyGroup studyGroup, String username) throws SQLException {
         return connector.handleQuery((Connection connection) -> {
             String addElementQuery = "INSERT INTO study_group "
                     + "(creationDate, name, x, y, students_count, should_be_expelled, transferred_students, "
@@ -69,7 +70,7 @@ public class DBManager {
             preparedStatement.executeUpdate();
             ResultSet result = preparedStatement.getGeneratedKeys();
             result.next();
-            return result.getLong(1);
+            return result.getInt(1);
         });
     }
 
@@ -89,74 +90,83 @@ public class DBManager {
         });
     }
 
-    public List<Long> removeAllByMinutesOfWaiting(int minutesOfWaiting, String username) throws SQLException {
+    public List<Integer> removeAnyByShouldBeExpelled(int shouldBeExpelled, String username) throws SQLException {
         return connector.handleQuery((Connection connection) -> {
-            String removeQuery = "DELETE FROM human_being USING users "
-                    + "WHERE human_being.minutes_of_waiting = ? "
-                    + "AND human_being.owner_id = users.id AND users.login = ? "
-                    + "RETURNING human_being.id;";
+            String removeQuery = "DELETE FROM study_group USING users "
+                    + "WHERE study_group.shouldBeExpelled = ? "
+                    + "AND study_group.owner_id = users.id AND users.login = ? "
+                    + "RETURNING study_group.id;";
             PreparedStatement preparedStatement = connection.prepareStatement(removeQuery);
-            preparedStatement.setLong(1, minutesOfWaiting);
+            preparedStatement.setInt(1, shouldBeExpelled);
             preparedStatement.setString(2, username);
             ResultSet resultSet = preparedStatement.executeQuery();
-            List<Long> idList = new ArrayList<>();
+            List<Integer> idList = new ArrayList<>();
             while (resultSet.next()) {
-                idList.add(resultSet.getLong("id"));
+                idList.add(resultSet.getInt("id"));
             }
             return idList;
         });
     }
 
-    public void removeById(Long id, String username) throws SQLException {
+
+    public List<Integer> getFieldDescendingSemester() throws SQLException {
+        return connector.handleQuery((Connection connection) -> {
+            String returnQuery = "SELECT FROM study_group USING users "
+                    + "RETURNING study_group.semester_enum;";
+            PreparedStatement preparedStatement = connection.prepareStatement(returnQuery);
+            ResultSet resultSet = preparedStatement.executeQuery();
+            List<Integer> idList = new ArrayList<>();
+            while (resultSet.next()) {
+                idList.add(resultSet.getInt("id"));
+            }
+            return idList;
+        });
+    }
+    public void removeById(Integer id, String username) throws SQLException {
         connector.handleQuery((Connection connection) -> {
-            String removeQuery = "DELETE FROM human_being USING users "
-                    + "WHERE human_being.id = ? "
-                    + "AND human_being.owner_id = users.id AND users.login = ?;";
+            String removeQuery = "DELETE FROM study_group USING users "
+                    + "WHERE study_group.id = ? "
+                    + "AND study_group.owner_id = users.id AND users.login = ?;";
             PreparedStatement preparedStatement = connection.prepareStatement(removeQuery);
-            preparedStatement.setLong(1, id);
+            preparedStatement.setInt(1, id);
             preparedStatement.setString(2, username);
             preparedStatement.executeUpdate();
         });
     }
 
-    public void update(long id, HumanBeing humanBeing, String username) throws SQLException {
+    public void update(Integer id, StudyGroup studyGroup, String username) throws SQLException {
         connector.handleQuery((Connection connection) -> {
             connection.createStatement().executeUpdate("BEGIN TRANSACTION;");
-            String updateQuery = "UPDATE human_being "
+            String updateQuery = "UPDATE study_group "
                     + "SET name = ?, "
                     + "x = ?, "
                     + "y = ?, "
-                    + "real_hero = ?, "
-                    + "has_toothpick = ?, "
-                    + "impact_speed = ?, "
-                    + "soundtrack_name = ?, "
-                    + "minutes_of_waiting = ?, "
-                    + "weapon_type = ?, "
-                    + "cool = ? "
-                    + "FROM users WHERE human_being.id = ? "
-                    + "AND human_being.owner_id = users.id "
+                    + "students_count = ?, "
+                    + "should_be_expelled = ?, "
+                    + "transferred_students = ?, "
+                    + "semester_enum = ?, "
+                    + "person_name = ?, "
+                    + "birthday = ?, "
+                    + "weight = ?, "
+                    + "passport_ID = ? "
+                    + "FROM users WHERE study_group.id = ? "
+                    + "AND study_group.owner_id = users.id "
                     + "AND users.login = ?;";
+
             PreparedStatement preparedStatement = connection.prepareStatement(updateQuery);
-            preparedStatement.setString(1, humanBeing.getName());
-            preparedStatement.setInt(2, humanBeing.getCoordinates().getX());
-            preparedStatement.setInt(3, humanBeing.getCoordinates().getY());
-            preparedStatement.setBoolean(4, humanBeing.getRealHero());
-            preparedStatement.setBoolean(5, humanBeing.getHasToothpick());
-            if (humanBeing.getImpactSpeed() == null) {
-                preparedStatement.setNull(6, Types.DOUBLE);
-            } else {
-                preparedStatement.setDouble(6, humanBeing.getImpactSpeed());
-            }
-            preparedStatement.setString(7, humanBeing.getSoundtrackName());
-            preparedStatement.setInt(8, humanBeing.getMinutesOfWaiting());
-            preparedStatement.setString(9, humanBeing.getWeaponType().toString());
-            if (humanBeing.getCar().getCool() == null) {
-                preparedStatement.setNull(10, Types.BOOLEAN);
-            } else {
-                preparedStatement.setBoolean(10, humanBeing.getCar().getCool());
-            }
-            preparedStatement.setLong(11, id);
-            preparedStatement.setString(12, username);
+            preparedStatement.setString(1, studyGroup.getGroupName());
+            preparedStatement.setDate(2, Date.valueOf(studyGroup.getCreationDate().toString()));
+            preparedStatement.setDouble(3, studyGroup.getCoordinates().getX());
+            preparedStatement.setFloat(4, studyGroup.getCoordinates().getY());
+            preparedStatement.setLong(5, studyGroup.getStudentsCount());
+            preparedStatement.setInt(6, studyGroup.getShouldBeExpelled());
+            preparedStatement.setInt(7, studyGroup.getTransferredStudents());
+            preparedStatement.setString(8, studyGroup.getSemesterEnum().toString());
+            preparedStatement.setString(9, studyGroup.getGroupAdmin().getPersonName());
+            preparedStatement.setString(10, studyGroup.getGroupAdmin().getBirthday().toString());
+            preparedStatement.setLong(11, studyGroup.getGroupAdmin().getWeight());
+            preparedStatement.setString(12, studyGroup.getGroupAdmin().getPassportID());
+            preparedStatement.setString(13, username);
             preparedStatement.executeUpdate();
             connection.createStatement().execute("COMMIT;");
         });
@@ -190,7 +200,7 @@ public class DBManager {
     public void validateUser(String username, String password) throws SQLException, IllegalArgumentException {
         if (!connector.handleQuery((Connection connection) ->
                 StringEncryptor.encryptString(password).equals(getPassword(username)))) {
-            throw new IllegalArgumentException("Такого пользователя не существует");
+            throw new IllegalArgumentException("User doesn't exist");
         }
     }
 
@@ -207,49 +217,49 @@ public class DBManager {
         });
     }
 
-    public void checkHumanBeingExistence(Long id, String username) throws SQLException {
+    public void checkStudyGroupExistence(Integer id, String username) throws SQLException {
         connector.handleQuery((Connection connection) -> {
             String existenceQuery = "SELECT COUNT (*) "
-                    + "FROM human_being, users "
-                    + "WHERE human_being.id = ? "
-                    + "AND human_being.owner_id = users.id AND users.login = ?;";
+                    + "FROM study_group, users "
+                    + "WHERE study_group.id = ? "
+                    + "AND study_group.owner_id = users.id AND users.login = ?;";
             PreparedStatement preparedStatement = connection.prepareStatement(existenceQuery);
-            preparedStatement.setLong(1, id);
+            preparedStatement.setInt(1, id);
             preparedStatement.setString(2, username);
             ResultSet result = preparedStatement.executeQuery();
             result.next();
             if (result.getInt("count") < 1) {
-                throw new IllegalArgumentException("У вас нет права доступа или человека с таким id не существует");
+                throw new IllegalArgumentException("Access denied: id doesn't exist or you don't have access");
             }
         });
     }
 
-    public List<Long> getIdsOfUsersElements(String username) throws SQLException {
+    public List<Integer> getIdsOfUsersElements(String username) throws SQLException {
         return connector.handleQuery((Connection connection) -> {
-            String existenceQuery = "SELECT human_being.id "
-                    + "FROM human_being, users "
-                    + "WHERE human_being.owner_id = users.id AND users.login = ?;";
+            String existenceQuery = "SELECT study_group.id "
+                    + "FROM study_group, users "
+                    + "WHERE study_group.owner_id = users.id AND users.login = ?;";
             PreparedStatement preparedStatement = connection.prepareStatement(existenceQuery);
             preparedStatement.setString(1, username);
             ResultSet resultSet = preparedStatement.executeQuery();
-            List<Long> idList = new ArrayList<>();
+            List<Integer> idList = new ArrayList<>();
             while (resultSet.next()) {
-                idList.add(resultSet.getLong("id"));
+                idList.add(resultSet.getInt("id"));
             }
             return idList;
         });
     }
 
-    public void removeByIds(List<Long> idListLover, String username) throws SQLException {
+    public void removeByIds(List<Integer> idListLover, String username) throws SQLException {
         connector.handleQuery((Connection connection) -> {
             connection.createStatement().executeUpdate("BEGIN TRANSACTION;");
-            String removeQuery = "DELETE FROM human_being USING users "
-                    + "WHERE human_being.id = ? "
-                    + "AND human_being.owner_id = users.id AND users.login = ?;";
+            String removeQuery = "DELETE FROM study_group USING users "
+                    + "WHERE study_group.id = ? "
+                    + "AND study_group.owner_id = users.id AND users.login = ?;";
             PreparedStatement preparedStatement = connection.prepareStatement(removeQuery);
             preparedStatement.setString(2, username);
-            for (Long id : idListLover) {
-                preparedStatement.setLong(1, id);
+            for (Integer id : idListLover) {
+                preparedStatement.setInt(1, id);
                 preparedStatement.executeUpdate();
             }
             connection.createStatement().execute("COMMIT;");

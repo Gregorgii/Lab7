@@ -12,13 +12,14 @@ public class RequestThread extends Thread {
     private final ServerSocketWorker serverSocketWorker;
     private final CommandManager commandManager;
     private final UsersManager userManager;
-    private final ExecutorService fixedService = Executors.newFixedThreadPool(4);
+
+    private final ExecutorService cachedService = Executors.newCachedThreadPool();
     private final ForkJoinPool forkJoinPool = new ForkJoinPool(4);
 
-    public RequestThread(ServerSocketWorker serverSocketWorker, CommandManager commandManager, UsersManager userManager) {
+    public RequestThread(ServerSocketWorker serverSocketWorker, CommandManager commandManager, UsersManager usersManager) {
         this.serverSocketWorker = serverSocketWorker;
         this.commandManager = commandManager;
-        this.userManager =  userManager;
+        this.userManager = usersManager;
     }
 
     @Override
@@ -38,18 +39,18 @@ public class RequestThread extends Thread {
                             } else {
                                 return null;
                             }
-                        }, fixedService)
+                        }, cachedService)
                         .thenAcceptAsync(responseToSend -> {
                             try {
                                 serverSocketWorker.sendResponse(responseToSend, acceptedRequest.getSocketAddress());
                             } catch (IOException e) {
-                                System.out.println("Error while sending answer to client");
+                                System.out.println("Ошибка при отправке ответа клиенту");
                             }
-                        }, fixedService);
+                        }, cachedService);
             } catch (ExecutionException e) {
-                System.out.println("Error while working with request from client");
+                System.out.println("Ошибка при обработке запроса от клиента");
             } catch (InterruptedException e) {
-                System.out.println("Thread was stopped");
+                System.out.println("Поток был прерван");
             }
         }
         serverSocketWorker.stopServer();

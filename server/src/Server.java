@@ -1,36 +1,47 @@
-import generators.CollectionManagerGenerator;
+import DB.Connector;
+import DB.DBManager;
 import managers.CollectionManager;
+import managers.UsersManager;
 import util.ConsoleThread;
 import util.RequestThread;
 import util.workingWithClient.GeneratorServerSocketWorker;
 import util.workingWithClient.ServerSocketWorker;
 import util.workingWithCommand.CommandManager;
-import util.workingWithCommand.FileManager;
+import util.workingWithCommand.CommandProcessor;
 import util.workingWithCommand.ServerCommandListener;
 
-import java.io.IOException;
+import java.sql.SQLException;
 import java.util.Scanner;
 
 public class Server {
-    private final String fileName;
     private final ServerCommandListener serverCommandListener = new ServerCommandListener();
-    public Server(String fileName){ this.fileName = fileName; }
+    private Connector dbConnector;
+    private DBManager dbManager;
+    private UsersManager usersManager;
+    private CommandProcessor commandProcessor;
+    private CommandManager commandManager;
+    private CollectionManager collectionManager;
 
-    public void startServer() throws IOException {
+    public void startServer() {
+        dbConnector = new Connector();
+        dbManager = new DBManager(dbConnector);
+        usersManager = new UsersManager(dbManager);
+        collectionManager = new CollectionManager();
+        commandProcessor = new CommandProcessor(dbManager, collectionManager);
+        commandManager = new CommandManager(commandProcessor);
         try {
-            FileManager fileManager = new FileManager(fileName);
-            CollectionManagerGenerator collectionManagerGenerator = new CollectionManagerGenerator(fileManager);
-            CollectionManager collectionManager = collectionManagerGenerator.getCollectionManager();
-            CommandManager commandManager = new CommandManager(collectionManager);
-            Scanner scanner = new Scanner(System.in);
-            GeneratorServerSocketWorker generatorServerSocketWorker = new GeneratorServerSocketWorker(scanner);
-            ServerSocketWorker serverSocketWorker = generatorServerSocketWorker.getServerSocketWorker();
-            RequestThread requestThread = new RequestThread(serverSocketWorker, commandManager);
-            ConsoleThread consoleThread = new ConsoleThread(serverCommandListener, commandManager, scanner);
-            requestThread.start();
-            consoleThread.start();
-        } catch (IOException e) {
-            System.out.println(e.getMessage());
+            collectionManager.setGroupCollection(dbManager.loadCollection());
+        } catch (SQLException e) {
+            System.out.println("Ошибка при инициализации коллекции");
+            e.printStackTrace();
+            System.exit(1);
         }
+        Scanner scanner = new Scanner(System.in);
+        GeneratorServerSocketWorker generatorServerSocketWorker = new GeneratorServerSocketWorker(scanner);
+        ServerSocketWorker serverSocketWorker = generatorServerSocketWorker.getServerSocketWorker();
+        RequestThread requestThread = new RequestThread(serverSocketWorker, commandManager, usersManager);
+        ConsoleThread consoleThread = new ConsoleThread(serverCommandListener, commandManager, scanner);
+        requestThread.start();
+        consoleThread.start();
     }
 }

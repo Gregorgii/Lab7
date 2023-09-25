@@ -9,6 +9,8 @@ public class RequestBuilder {
         private Integer integerArgument;
         private Double doubleArgument;
         private StudyGroup studyGroupArgument;
+        private String usernameArgument;
+        private String passwordArgument;
         private RequestType requestTypeArgument;
 
         public RequestBuilder withName(String commandName) {
@@ -35,6 +37,15 @@ public class RequestBuilder {
             this.studyGroupArgument = studyGroupArgument;
             return this;
         }
+        public RequestBuilder withUsernameArgument(String usernameArgument) {
+            this.usernameArgument = usernameArgument;
+            return this;
+        }
+
+        public RequestBuilder withPasswordArgument(String passwordArgument) {
+            this.passwordArgument = passwordArgument;
+            return this;
+        }
 
         public RequestBuilder withRequestTypeArgument(RequestType requestTypeArgument) {
             this.requestTypeArgument = requestTypeArgument;
@@ -58,6 +69,14 @@ public class RequestBuilder {
         }
 
         public StudyGroup getStudyGroupArgument() { return studyGroupArgument; }
+
+        public String getUsernameArgument() {
+        return usernameArgument;
+    }
+
+        public String getPasswordArgument() {
+        return passwordArgument;
+    }
         public RequestType getRequestTypeArgument() {
         return requestTypeArgument;
     }
