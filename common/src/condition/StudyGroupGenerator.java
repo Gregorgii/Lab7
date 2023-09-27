@@ -10,8 +10,10 @@ public class StudyGroupGenerator {
 
     public void generateStudyGroup(){
         condition.generateStudyGroupFields();
+        condition.setCreationDate();
         if (condition.isCorrect()){
             this.studyGroup = new StudyGroup(new StudyGroupBuilder()
+                    .withCreationDate(condition.getCreationDate())
                     .withGroupName(condition.getGroupName())
                     .withCoordinates(condition.getX(), condition.getY())
                     .withStudentsCount(condition.getStudentsCount())

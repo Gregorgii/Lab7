@@ -3,10 +3,13 @@ package condition;
 import things.Semester;
 
 import java.time.LocalDate;
+import java.time.ZonedDateTime;
 import java.util.ArrayDeque;
 import java.util.Scanner;
 
 public abstract class Condition {
+
+    private ZonedDateTime creationDate;
     private String groupName;
     private Double x;
     private Float y;
@@ -32,6 +35,8 @@ public abstract class Condition {
             System.out.println(errs.remove());
         }
     }
+
+    public ZonedDateTime getCreationDate() {return  creationDate; }
     public String getGroupName() { return groupName; }
 
     public Double getX() {return x; }
@@ -75,6 +80,10 @@ public abstract class Condition {
     public void setWeight(Long weight) {this.weight = weight; }
 
     public void setPassportID(String passportID) {this.passportID = passportID; }
+
+    public void setCreationDate() {
+        this.creationDate = ZonedDateTime.now();
+    }
 
     public Scanner getScanner() {return scanner; }
 

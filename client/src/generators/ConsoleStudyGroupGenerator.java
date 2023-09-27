@@ -22,7 +22,7 @@ public class ConsoleStudyGroupGenerator extends Condition {
         setValue("Set students count in study group", this::setStudentsCount);
         setValue("Set count of transferred students in the group", this::setTransferredStudents);
         setValue("Set count of students who should be expelled", this::setShouldBeExpelled);
-        setValue("Set semester enum. Choose from " + Semester.values(), this::setSemesterEnum);
+        setValue("Set semester enum. Choose from " + Semester.show(), this::setSemesterEnum);
         setValue("Set group admin ", this::generateGroupAdminFields);
 
     }

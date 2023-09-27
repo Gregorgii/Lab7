@@ -1,5 +1,6 @@
 package util.workingWithServer;
 
+import things.RequestType;
 import things.StudyGroup;
 import util.Request;
 import util.RequestBuilder;
@@ -27,7 +28,7 @@ public class RequestCreator {
         } else {
             throw new IllegalArgumentException("Ur command isn't real. Print help");
         }
-        System.out.println(request);
+        request.setRequestTypeArgument(RequestType.COMMAND);
         return request;
     }
 

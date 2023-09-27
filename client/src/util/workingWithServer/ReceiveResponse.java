@@ -6,13 +6,16 @@ import util.Response;
 import java.io.IOException;
 
 public final class ReceiveResponse {
+    private ReceiveResponse() {
+    }
+
     public static void receiveResponse(ClientSocketWorker clientSocketWorker) {
         try {
             Response response = null;
             for (int i = 0; i < 50 && response == null; i++) {
                 try {
                     System.out.println("Ждем ответ от сервера...");
-                    Thread.sleep(100);
+                    Thread.sleep(200);
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }

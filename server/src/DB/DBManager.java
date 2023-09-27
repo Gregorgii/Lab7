@@ -6,6 +6,7 @@ import things.StudyGroupBuilder;
 import util.StringEncryptor;
 
 import java.sql.*;
+import java.time.ZonedDateTime;
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
@@ -28,7 +29,7 @@ public class DBManager {
                 Semester semesterEnum = Semester.valueOf(stringSemesterEnum);
                 StudyGroup studyGroup = new StudyGroup(new StudyGroupBuilder()
                         .withId(result.getInt("id"))
-                        .withCreationDate(result.getDate("creation_date").toLocalDate())
+                        .withCreationDate(ZonedDateTime.from(result.getDate("creation_date").toLocalDate()))
                         .withGroupName(result.getString("name"))
                         .withCoordinates(result.getDouble("x"), result.getFloat("y"))
                         .withStudentsCount(result.getLong("students_count"))
@@ -49,13 +50,13 @@ public class DBManager {
     public Integer add(StudyGroup studyGroup, String username) throws SQLException {
         return connector.handleQuery((Connection connection) -> {
             String addElementQuery = "INSERT INTO study_group "
-                    + "(creationDate, name, x, y, students_count, should_be_expelled, transferred_students, "
-                    + "semester_enum, person_name, birthday, weight, passport_ID) "
+                    + "(creationdate, name, x, y, studentscount, shouldbeexpelled, transferredstudents, "
+                    + "semesterenum, personname, birthday, weight, passportid) "
                     + "SELECT ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, id FROM users WHERE users.login = ?;";
             PreparedStatement preparedStatement = connection.prepareStatement(addElementQuery,
                     Statement.RETURN_GENERATED_KEYS);
-            preparedStatement.setString(1, studyGroup.getGroupName());
-            preparedStatement.setDate(2, Date.valueOf(studyGroup.getCreationDate().toString()));
+            preparedStatement.setDate(1, Date.valueOf(studyGroup.getCreationDate().toString()));
+            preparedStatement.setString(2, studyGroup.getGroupName());
             preparedStatement.setDouble(3, studyGroup.getCoordinates().getX());
             preparedStatement.setFloat(4, studyGroup.getCoordinates().getY());
             preparedStatement.setLong(5, studyGroup.getStudentsCount());

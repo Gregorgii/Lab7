@@ -71,8 +71,8 @@ public class StudyGroup implements Comparable<StudyGroup>, Serializable {
         return coordinates;
     }
     /**
-    * @return The info about Study Group (creation date)
-    */
+     * @return The info about Study Group (creation date)
+     */
 
     public ZonedDateTime getCreationDate(){
         return creationDate;

@@ -2,11 +2,12 @@ package things;
 
 import java.io.Serializable;
 import java.time.LocalDate;
+import java.time.ZonedDateTime;
 
 public class StudyGroupBuilder implements Serializable {
 
     private Integer id;
-    private LocalDate creationDate;
+    private ZonedDateTime creationDate;
     private String groupName;
     private Coordinates coordinates;
     private Long studentsCount;
@@ -20,7 +21,7 @@ public class StudyGroupBuilder implements Serializable {
         return this;
     }
 
-    public StudyGroupBuilder withCreationDate(LocalDate creationDate){
+    public StudyGroupBuilder withCreationDate(ZonedDateTime creationDate){
         this.creationDate = creationDate;
         return this;
     }

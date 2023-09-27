@@ -30,7 +30,7 @@ public class CommandProcessor {
             return new Response(new ResponseBuilder()
                     .withMessageToResponse(collectionManager.add(studyGroup)+ "It's id = " + id));
         } catch (SQLException e) {
-            throw new RuntimeException(e);
+            return new Response(new ResponseBuilder().withMessageToResponse(e.getMessage()));
         }
     }
     public Response clear(Request request) {

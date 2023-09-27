@@ -10,7 +10,7 @@ import java.io.IOException;
 import java.net.*;
 
 public class ServerSocketWorker {
-    private static final int DEFAULT_PORT = 5672;
+    private static final int DEFAULT_PORT = 2000;
     private DatagramSocket datagramSocket;
     private int port = DEFAULT_PORT;
     private SocketAddress clientAddress;

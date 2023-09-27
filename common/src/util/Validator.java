@@ -25,10 +25,16 @@ public class Validator<T> {
                 string = "null";
             }
         } catch (NoSuchElementException e) {
-            System.out.println("Unsuitable element");
+            System.out.println("Введен недопустимый символ");
             System.exit(1);
         }
 
+    }
+
+    public static void validateQuantityOfArgs(String[] args, int amountOfArgs) throws IllegalArgumentException {
+        if (args.length != amountOfArgs) {
+            throw new IllegalArgumentException("Неверное количество аргументов, данная команда требует " + amountOfArgs + " аргументов");
+        }
     }
 
     public Validator<T> withCheckingNull(boolean nullable) throws IllegalArgumentException {
@@ -36,7 +42,7 @@ public class Validator<T> {
             if (nullable) {
                 value = null;
             } else {
-                throw new IllegalArgumentException("Value can't be null");
+                throw new IllegalArgumentException("Значение не может быть пустой строкой");
             }
         }
         return this;
@@ -47,14 +53,18 @@ public class Validator<T> {
             try {
                 value = function.apply(string);
             } catch (IllegalArgumentException | DateTimeParseException e) {
-                throw new IllegalArgumentException("Error in checking func, " + description);
+                throw new IllegalArgumentException("Ошибка при обработке значения, " + description);
             }
         }
         return this;
     }
 
     public Validator<T> withCheckingPredicate(Predicate<Object> predicate, String error) {
-        if (!"null".equals(string)) {
+        if (value == null && !"null".equals(string)) {
+            if (!predicate.test(string)) {
+                throw new IllegalArgumentException(error);
+            }
+        } else if (!"null".equals(string)) {
             if (!predicate.test(value)) {
                 throw new IllegalArgumentException(error);
             }
@@ -68,11 +78,5 @@ public class Validator<T> {
             value = (T) string;
         }
         return value;
-    }
-
-    public static void validateQuantityOfArgs(String[] args, int amountOfArgs) throws IllegalArgumentException {
-        if (args.length != amountOfArgs) {
-            throw new IllegalArgumentException("Wrong count of args, this command wants " + amountOfArgs + " args");
-        }
     }
 }

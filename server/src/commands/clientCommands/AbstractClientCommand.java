@@ -1,9 +1,7 @@
 package commands.clientCommands;
 
-import util.Response;
 import util.Request;
-
-import java.sql.SQLException;
+import util.Response;
 
 public abstract class AbstractClientCommand {
     private final String name; // Имя
@@ -20,7 +18,7 @@ public abstract class AbstractClientCommand {
         this.generatesStudyGroup = builder.generatesStudyGroup;
     }
 
-    public abstract Response executeCommand(Request request) throws SQLException;
+    public abstract Response executeCommand(Request request);
 
     public String getName() {
         return name;

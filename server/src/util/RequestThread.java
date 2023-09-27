@@ -31,6 +31,7 @@ public class RequestThread extends Thread {
                 CompletableFuture.supplyAsync(acceptedRequest::getRequest)
                         .thenApplyAsync(request -> {
                             if (request.getRequestTypeArgument().equals(RequestType.COMMAND)) {
+                                System.out.println("Command received");
                                 return commandManager.executeClientCommand(request);
                             } else if (request.getRequestTypeArgument().equals(RequestType.LOGIN)) {
                                 return userManager.loginUser(request);

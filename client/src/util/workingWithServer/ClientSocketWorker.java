@@ -14,7 +14,7 @@ import java.nio.ByteBuffer;
 import java.nio.channels.DatagramChannel;
 
 public class ClientSocketWorker {
-    private static final int DEFAULT_PORT = 1337;
+    private static final int DEFAULT_PORT = 2000;
     private final DatagramChannel datagramChannel;
     private SocketAddress socketAddress;
     private InetAddress host;
@@ -36,13 +36,10 @@ public class ClientSocketWorker {
 
     public void sendRequest(Request request) throws IOException {
         try {
-            if (request == null) {
-                throw new IllegalArgumentException("Request cannot be null");
-            }
             ByteBuffer bufferToSend = Serializer.serializeRequest(request);
             datagramChannel.send(bufferToSend, socketAddress);
-        } catch (NullPointerException e) {
-            throw new IOException("Failed to send request: " + e.getMessage());
+        } catch (IOException e) {
+            throw new IOException("Произошла ошибка при отправке запроса");
         }
     }
 
@@ -62,13 +59,13 @@ public class ClientSocketWorker {
         return port;
     }
 
-    public String getAddress() {
-        return address;
-    }
-
     public void setPort(int port) {
         this.port = port;
         this.socketAddress = new InetSocketAddress(host, port);
+    }
+
+    public String getAddress() {
+        return address;
     }
 
     public void setAddress(String address) throws UnknownHostException {

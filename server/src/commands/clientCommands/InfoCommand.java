@@ -10,7 +10,7 @@ public class InfoCommand extends AbstractClientCommand{
 
     public InfoCommand(CommandProcessor commandProcessor){
         super(new AbstractCommandBuilder()
-                .withName("Info")
+                .withName("info")
                 .withQuantityOfArgs(0)
                 .withDescription("print standard information about collection to stream")
                 .withGeneratesStudyGroup(false));

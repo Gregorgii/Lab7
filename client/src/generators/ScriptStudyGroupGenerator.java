@@ -10,7 +10,7 @@ import java.time.LocalDate;
 import java.time.format.DateTimeParseException;
 import java.util.Scanner;
 
-public class ScriptStudyGroupGenerator extends Condition {
+public class    ScriptStudyGroupGenerator extends Condition {
     private static final int QUANTITY_OF_ARGS = 11;
     private String[] stringStudyGroup;
     public ScriptStudyGroupGenerator(Scanner scanner){super(scanner);}
