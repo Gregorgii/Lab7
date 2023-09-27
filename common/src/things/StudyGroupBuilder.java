@@ -88,4 +88,7 @@ public class StudyGroupBuilder implements Serializable {
         return groupAdmin;
     }
 
+    public ZonedDateTime getCreationDate() {return creationDate; }
+
+    public Integer getId() {return id;}
 }

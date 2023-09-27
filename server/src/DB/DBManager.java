@@ -6,6 +6,7 @@ import things.StudyGroupBuilder;
 import util.StringEncryptor;
 
 import java.sql.*;
+import java.time.ZoneId;
 import java.time.ZonedDateTime;
 import java.util.ArrayList;
 import java.util.LinkedList;
@@ -29,7 +30,7 @@ public class DBManager {
                 Semester semesterEnum = Semester.valueOf(stringSemesterEnum);
                 StudyGroup studyGroup = new StudyGroup(new StudyGroupBuilder()
                         .withId(result.getInt("id"))
-                        .withCreationDate(ZonedDateTime.from(result.getDate("creation_date").toLocalDate()))
+                        .withCreationDate(ZonedDateTime.from(result.getDate("creation_date").toLocalDate().atStartOfDay(ZoneId.of("Europe/Moscow"))))
                         .withGroupName(result.getString("name"))
                         .withCoordinates(result.getDouble("x"), result.getFloat("y"))
                         .withStudentsCount(result.getLong("students_count"))
@@ -50,12 +51,12 @@ public class DBManager {
     public Integer add(StudyGroup studyGroup, String username) throws SQLException {
         return connector.handleQuery((Connection connection) -> {
             String addElementQuery = "INSERT INTO study_group "
-                    + "(creationdate, name, x, y, studentscount, shouldbeexpelled, transferredstudents, "
-                    + "semesterenum, personname, birthday, weight, passportid) "
+                    + "(creation_date, name, x, y, students_count, should_be_expelled, transferred_students, "
+                    + "semester_enum, person_name, birthday, weight, passport_id, owner_id) "
                     + "SELECT ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, id FROM users WHERE users.login = ?;";
             PreparedStatement preparedStatement = connection.prepareStatement(addElementQuery,
                     Statement.RETURN_GENERATED_KEYS);
-            preparedStatement.setDate(1, Date.valueOf(studyGroup.getCreationDate().toString()));
+            preparedStatement.setDate(1, Date.valueOf(studyGroup.getCreationDate().toLocalDate()));
             preparedStatement.setString(2, studyGroup.getGroupName());
             preparedStatement.setDouble(3, studyGroup.getCoordinates().getX());
             preparedStatement.setFloat(4, studyGroup.getCoordinates().getY());
@@ -64,7 +65,7 @@ public class DBManager {
             preparedStatement.setInt(7, studyGroup.getTransferredStudents());
             preparedStatement.setString(8, studyGroup.getSemesterEnum().toString());
             preparedStatement.setString(9, studyGroup.getGroupAdmin().getPersonName());
-            preparedStatement.setString(10, studyGroup.getGroupAdmin().getBirthday().toString());
+            preparedStatement.setDate(10, Date.valueOf(studyGroup.getGroupAdmin().getBirthday().toString()));
             preparedStatement.setLong(11, studyGroup.getGroupAdmin().getWeight());
             preparedStatement.setString(12, studyGroup.getGroupAdmin().getPassportID());
             preparedStatement.setString(13, username);
@@ -94,7 +95,7 @@ public class DBManager {
     public List<Integer> removeAnyByShouldBeExpelled(int shouldBeExpelled, String username) throws SQLException {
         return connector.handleQuery((Connection connection) -> {
             String removeQuery = "DELETE FROM study_group USING users "
-                    + "WHERE study_group.shouldBeExpelled = ? "
+                    + "WHERE study_group.should_be_expelled = ? "
                     + "AND study_group.owner_id = users.id AND users.login = ? "
                     + "RETURNING study_group.id;";
             PreparedStatement preparedStatement = connection.prepareStatement(removeQuery);
@@ -110,19 +111,6 @@ public class DBManager {
     }
 
 
-    public List<Integer> getFieldDescendingSemester() throws SQLException {
-        return connector.handleQuery((Connection connection) -> {
-            String returnQuery = "SELECT FROM study_group USING users "
-                    + "RETURNING study_group.semester_enum;";
-            PreparedStatement preparedStatement = connection.prepareStatement(returnQuery);
-            ResultSet resultSet = preparedStatement.executeQuery();
-            List<Integer> idList = new ArrayList<>();
-            while (resultSet.next()) {
-                idList.add(resultSet.getInt("id"));
-            }
-            return idList;
-        });
-    }
     public void removeById(Integer id, String username) throws SQLException {
         connector.handleQuery((Connection connection) -> {
             String removeQuery = "DELETE FROM study_group USING users "

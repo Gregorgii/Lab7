@@ -13,13 +13,13 @@ import java.util.Properties;
 
 public class Connector {
 
-    private final String dbUrl = "jdbc:postgresql://localhost:5432/postgres";
+    private final String dbUrl = "jdbc:postgresql://localhost:5435/studs";
     Properties info = new Properties();
 
 
         public Connector() {
             try{
-                FileInputStream conf = new FileInputStream("C:/Users/mavri/Documents/GitHub/Lab7/db.cfg");
+                FileInputStream conf = new FileInputStream("db.cfg");
                 info.load(conf);
                 Class.forName("org.postgresql.Driver");
                 initializeDB();
@@ -44,6 +44,8 @@ public class Connector {
         public <T> T handleQuery(SQLFunction<Connection, T> queryBody) throws SQLException {
             try (Connection connection = DriverManager.getConnection(dbUrl, info)) {
                 return queryBody.apply(connection);
+            } catch (InterruptedException e) {
+                throw new RuntimeException(e);
             }
         }
 
@@ -66,22 +68,22 @@ public class Connector {
             statement.execute("CREATE TABLE IF NOT EXISTS study_group "
                     + "("
                     + "id BIGINT PRIMARY KEY DEFAULT nextval('study_group_id_seq'),"
-                    + "creationDate date NOT NULL,"
+                    + "creation_Date date NOT NULL,"
                     + "name VARCHAR(50) NOT NULL CHECK(name<>''),"
                     + "x DOUBLE PRECISION NOT NULL CHECK(x > -771),"
                     + "y FLOAT NOT NULL,"
-                    + "studentsCount DOUBLE PRECISION NOT NULL,"
-                    + "shouldBeExpelled INT,"
-                    + " transferredStudents INT,"
-                    + "semesterEnum varchar(7) NOT NULL CHECK(semesterEnum = 'SECOND' "
-                    + "OR semesterEnum = 'THIRD' "
-                    + "OR semesterEnum = 'FIFTH' "
-                    + "OR semesterEnum = 'SEVENTH' "
-                    + "OR semesterEnum = 'EIGHTH'),"
-                    + "personName VARCHAR(50) NOT NULL CHECK(personName <> ''),"
+                    + "students_Count DOUBLE PRECISION NOT NULL,"
+                    + "should_Be_Expelled INT,"
+                    + " transferred_Students INT,"
+                    + "semester_Enum varchar(7) NOT NULL CHECK(semester_Enum = 'SECOND' "
+                    + "OR semester_Enum = 'THIRD' "
+                    + "OR semester_Enum = 'FIFTH' "
+                    + "OR semester_Enum = 'SEVENTH' "
+                    + "OR semester_Enum = 'EIGHTH'),"
+                    + "person_Name VARCHAR(50) NOT NULL CHECK(person_Name <> ''),"
                     + "birthday DATE NOT NULL,"
                     + "weight DOUBLE PRECISION CHECK(weight > 0),"
-                    + "passportID VARCHAR(50) NOT NULL CHECK(passportID <> ''),"
+                    + "passport_ID VARCHAR(50) NOT NULL CHECK(passport_ID <> ''),"
                     + "owner_id BIGINT NOT NULL REFERENCES users (id)"
                     + ");");
             connection.close();

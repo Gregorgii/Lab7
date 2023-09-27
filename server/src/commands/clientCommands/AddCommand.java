@@ -19,8 +19,7 @@ public class AddCommand extends AbstractClientCommand {
     }
 
     @Override
-    public Response executeCommand(Request request){
-        return commandProcessor.add(request);
+    public Response executeCommand(Request request){ return commandProcessor.add(request);
     }
 
 }

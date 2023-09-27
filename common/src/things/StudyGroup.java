@@ -34,6 +34,8 @@ public class StudyGroup implements Comparable<StudyGroup>, Serializable {
     private Person groupAdmin; //Поле не может быть null
 
     public StudyGroup(StudyGroupBuilder studyGroupBuilder){
+        this.id = studyGroupBuilder.getId();
+        this.creationDate = studyGroupBuilder.getCreationDate();
         this.groupName = studyGroupBuilder.getGroupName();
         this.coordinates = studyGroupBuilder.getCoordinates();
         this.studentsCount = studyGroupBuilder.getStudentsCount();

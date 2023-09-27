@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ArtifactsWorkspaceSettings">
     <artifacts-to-build>
-      <artifact name="client:jar" />
       <artifact name="server:jar" />
     </artifacts-to-build>
   </component>
@@ -10,30 +9,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a746d0b8-0ef2-41ff-89e2-3e449071dcfb" name="Changes" comment="why it not fucking works">
-      <change afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
+    <list default="true" id="a746d0b8-0ef2-41ff-89e2-3e449071dcfb" name="Changes" comment="i can feel it. it's already done">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/commands/ExecuteScriptCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/commands/ExecuteScriptCommand.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/generators/ScriptStudyGroupGenerator.java" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/generators/ScriptStudyGroupGenerator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/util/workingWithCommand/CommandManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/util/workingWithCommand/CommandManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/util/workingWithServer/ClientSocketWorker.java" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/util/workingWithServer/ClientSocketWorker.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/util/workingWithServer/GeneratorUser.java" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/util/workingWithServer/GeneratorUser.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/util/workingWithServer/ReceiveResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/util/workingWithServer/ReceiveResponse.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/util/workingWithServer/RequestCreator.java" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/util/workingWithServer/RequestCreator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/util/workingWithServer/SendRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/util/workingWithServer/SendRequest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/common/src/condition/Condition.java" beforeDir="false" afterPath="$PROJECT_DIR$/common/src/condition/Condition.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/common/src/condition/StudyGroupGenerator.java" beforeDir="false" afterPath="$PROJECT_DIR$/common/src/condition/StudyGroupGenerator.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/common/src/things/StudyGroup.java" beforeDir="false" afterPath="$PROJECT_DIR$/common/src/things/StudyGroup.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/common/src/util/Validator.java" beforeDir="false" afterPath="$PROJECT_DIR$/common/src/util/Validator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/src/things/StudyGroupBuilder.java" beforeDir="false" afterPath="$PROJECT_DIR$/common/src/things/StudyGroupBuilder.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server/src/DB/Connector.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/DB/Connector.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server/src/DB/DBManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/DB/DBManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/commands/clientCommands/AbstractClientCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/commands/clientCommands/AbstractClientCommand.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/commands/clientCommands/InfoCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/commands/clientCommands/InfoCommand.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/util/RequestThread.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/util/RequestThread.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/util/workingWithClient/ServerSocketWorker.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/util/workingWithClient/ServerSocketWorker.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/util/workingWithCommand/CommandManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/util/workingWithCommand/CommandManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/util/workingWithCommand/CommandProcessor.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/util/workingWithCommand/CommandProcessor.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/util/workingWithCommand/FileManager.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/DBInterface/SQLFunction.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/DBInterface/SQLFunction.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/commands/clientCommands/AddCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/commands/clientCommands/AddCommand.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -88,37 +72,37 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;ASKED_SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;Downloaded.Files.Path.Enabled&quot;: &quot;false&quot;,
-    &quot;Repository.Attach.Annotations&quot;: &quot;false&quot;,
-    &quot;Repository.Attach.JavaDocs&quot;: &quot;false&quot;,
-    &quot;Repository.Attach.Sources&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
-    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
-    &quot;jdk.selected.JAVA_MODULE&quot;: &quot;18&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/mavri/Documents/GitHub/Lab7&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Artifacts&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;advanced.settings&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "Downloaded.Files.Path.Enabled": "false",
+    "Repository.Attach.Annotations": "false",
+    "Repository.Attach.JavaDocs": "false",
+    "Repository.Attach.Sources": "true",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "git-widget-placeholder": "master",
+    "ignore.virus.scanning.warn.message": "true",
+    "jdk.selected.JAVA_MODULE": "18",
+    "last_opened_file_path": "C:/Users/mavri/Documents/GitHub/Lab7",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "project.structure.last.edited": "Artifacts",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2",
+    "settings.editor.selected.configurable": "database.query.execution",
+    "vue.rearranger.settings.migration": "true"
   },
-  &quot;keyToStringList&quot;: {
-    &quot;DatabaseDriversLRU&quot;: [
-      &quot;java.sql.Driver&quot;,
-      &quot;postgresql&quot;
+  "keyToStringList": {
+    "DatabaseDriversLRU": [
+      "java.sql.Driver",
+      "postgresql"
     ]
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CreateClassDialog.RecentsKey">
       <recent name="things" />
@@ -141,7 +125,7 @@
       <recent name="managers" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.Main">
+  <component name="RunManager" selected="Application.Main (1)">
     <configuration name="Main (1)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Main" />
       <module name="client" />
@@ -193,7 +177,8 @@
       <workItem from="1695721415974" duration="1534000" />
       <workItem from="1695726949446" duration="305000" />
       <workItem from="1695727283735" duration="415000" />
-      <workItem from="1695728140821" duration="14134000" />
+      <workItem from="1695728140821" duration="14525000" />
+      <workItem from="1695844829995" duration="6402000" />
     </task>
     <task id="LOCAL-00001" summary="started writing server">
       <option name="closed" value="true" />
@@ -291,7 +276,15 @@
       <option name="project" value="LOCAL" />
       <updated>1695652654525</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="i can feel it. it's already done">
+      <option name="closed" value="true" />
+      <created>1695815419660</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1695815419660</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -324,7 +317,8 @@
     <MESSAGE value="it's okay, but something wrong with sender. check it" />
     <MESSAGE value="ah shit here we go again.&#10;DBManager.java in progress" />
     <MESSAGE value="why it not fucking works" />
-    <option name="LAST_COMMIT_MESSAGE" value="why it not fucking works" />
+    <MESSAGE value="i can feel it. it's already done" />
+    <option name="LAST_COMMIT_MESSAGE" value="i can feel it. it's already done" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

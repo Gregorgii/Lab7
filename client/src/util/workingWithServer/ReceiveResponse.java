@@ -4,7 +4,6 @@ package util.workingWithServer;
 import util.Response;
 
 import java.io.IOException;
-
 public final class ReceiveResponse {
     private ReceiveResponse() {
     }
